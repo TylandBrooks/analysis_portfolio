@@ -1,8 +1,6 @@
-install.packages('readr','ggplot2', 'tidyr', 'dplyr')
-library(readr)
-library(gglot2)
-library(tidyr)
-library(dplyr)
+PROBLEM STATMENT: Find any relevant data that could show trends, user activity, and categories from FitBase data collected from users.  
+
+
 
 # READ CSV DATA
 activity_data <- read.csv("C://Users//tylandb//Documents//coursara//Fitabase//dailyActivity_merged.csv")
@@ -89,3 +87,9 @@ df_with_levels <- left_join(activity_level, subset_data, by = "Id") %>%
 
 
 write.csv(df_with_levels, "fitbit_data.csv", row.names = FALSE)
+
+
+
+-----ANALYSIS CONTINUATION-------
+
+Tableau visualiazion story link: https://public.tableau.com/app/profile/tyland.brooks/viz/Churn_Rate_Data/BankChurnStory
