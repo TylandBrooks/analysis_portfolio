@@ -1,0 +1,20 @@
+DESCRIPTION: Creates a table listing the ingredients, then ordered weight, total inventory weight, and remaining weight to calculate when inventory is getting low. 
+
+SELECT 
+  s2.ing_name,
+  s2.ordered_weight,
+  ing.ing_weight * inv.quantity AS total_inv_weight,
+  (ing.ing_weight * inv.quantity) -s2.ordered_weight AS remaining_weight
+   
+   FROM 
+(  
+    SELECT
+      ing_id,
+      ing_name,
+      sum(ordered_weight) as ordered_weight
+    FROM
+      `data-project-1234-378722.bens_pizza_db.stock1`
+      group by ing_name, ing_id) AS s2
+
+LEFT JOIN `data-project-1234-378722.bens_pizza_db.inventory` inv ON inv.item_id = s2.ing_id
+LEFT JOIN `data-project-1234-378722.bens_pizza_db.ingredients` ing ON ing.ing_id = s2.ing_id 
