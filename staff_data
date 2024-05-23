@@ -1,4 +1,4 @@
-DESCRIPTION: this dataset grabs the date, employee, and their shift data (Hourly rate, start time, end time, etc.)  
+DESCRIPTION: this dataset grabs the date, employee, and their shift data (Hourly rate, start time, end time, and staff cost)  
 
 SELECT 
   r.date,
