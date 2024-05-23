@@ -1,0 +1,21 @@
+DESCRIPTION: this dataset grabs the date, employee, and their shift data (Hourly rate, start time, end time, etc.)  
+
+SELECT 
+  r.date,
+  s.first_name,
+  s.last_name,
+  s.hourly_rate,
+  sh.start_time,
+  sh.end_time,
+  TIME_DIFF(sh.end_time, sh.start_time, MINUTE) / 60 AS hours_in_shift,
+  TIME_DIFF(sh.end_time, sh.start_time, MINUTE) / 60 * s.hourly_rate AS staff_cost
+FROM 
+  `data-project-1234-378722.bens_pizza_db.rota` r 
+LEFT JOIN 
+  `data-project-1234-378722.bens_pizza_db.staff` s 
+ON 
+  r.staff_id = s.staff_id 
+LEFT JOIN 
+  `data-project-1234-378722.bens_pizza_db.shift` sh 
+ON 
+  r.shift_id = sh.shift_id;
