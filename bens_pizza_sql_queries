@@ -1,4 +1,5 @@
-DESCRIPTION: Grabs total quantity by the ingedients
+DESCRIPTION: Grabs total quantity by the ingedients, and list it's price, order quantity, recipe quatity, unit cost, etc. 
+THis dataset lists the total quantity of ingredients and their relevant information such as cost, weight, and price. 
 
 
 SELECT
